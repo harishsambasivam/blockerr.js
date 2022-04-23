@@ -1,19 +1,21 @@
-(function () {
+module.exports = (function () {
   const timeoutIds = [];
   let canBlock = true;
+  const globalWindow = typeof window !== "undefined" ? window : global;
+
   function blockMacroTaskQueue(seconds = null) {
     if (seconds) {
+      console.log("Blocking started..."); 
       setTimeout(() => {
         canBlock = false;
         for (let timeoutId of timeoutIds) {
-          window.clearInterval(timeoutId);
+          globalWindow.clearInterval(timeoutId);
         }
-        console.log("Stopped blocking..."); 
+        console.log("Stopped blocking... " ) ; 
       }, seconds * 1000);
     }
-    console.log("Blocking started..."); 
     timeoutIds.push(setTimeout(() => {
-      if (canBlock) blockTaskQueue();
+      if (canBlock) blockMacroTaskQueue(null);
     }, 0));
   }
 

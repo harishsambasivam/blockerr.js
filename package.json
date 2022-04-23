@@ -4,7 +4,9 @@
   "description": "an utility to block javascript and mock errors",
   "main": "index.js",
   "scripts": {
-    "test": "jest ."
+    "test": "jest .",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,12 @@
   "homepage": "https://github.com/harishsambasivam/blockerr.js#readme",
   "dependencies": {
     "@types/jest": "^27.4.1",
+    "eslint-plugin-jest": "^26.1.5",
     "jest": "^27.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.14.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
   }
 }

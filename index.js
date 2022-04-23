@@ -1,3 +1,5 @@
+const blockMethods = require("./blockerr");
+
 module.exports = {
-    ...require("./blockerr")
-}
+    ...blockMethods,
+};
